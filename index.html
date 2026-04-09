@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PharmaFinder Sénégal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>PharmaFinder Sénégal</h1>
+    <p>Plateforme de recherche et disponibilité des médicaments</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('accueil')">Accueil</button>
+    <button onclick="showSection('client')">Client</button>
+    <button onclick="showSection('medecin')">Médecin</button>
+    <button onclick="showSection('pharmacien')">Pharmacien</button>
+  </nav>
+
+  <main>
+
+    <!-- ACCUEIL -->
+    <section id="accueil" class="section active">
+      <h2>Bienvenue sur PharmaFinder</h2>
+      <p>
+        PharmaFinder est une plateforme qui permet de rechercher un médicament et savoir
+        dans quelle pharmacie il est disponible au Sénégal.
+      </p>
+
+      <div class="info-box">
+        <h3>Fonctionnalités :</h3>
+        <ul>
+          <li>Recherche de médicament (Client)</li>
+          <li>Conseils et recommandations (Médecin)</li>
+          <li>Ajout de stock et prix (Pharmacien)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CLIENT -->
+    <section id="client" class="section">
+      <h2>Espace Client</h2>
+      <p>Rechercher un médicament et voir les pharmacies disponibles.</p>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Ex: Doliprane, Paracétamol...">
+        <button id="searchBtn">Rechercher</button>
+      </div>
+
+      <h3>Résultats :</h3>
+      <div id="resultList" class="result-list"></div>
+    </section>
+
+    <!-- MEDECIN -->
+    <section id="medecin" class="section">
+      <h2>Espace Médecin</h2>
+      <p>Ajouter une recommandation médicale pour un médicament.</p>
+
+      <form id="doctorForm">
+        <div class="form-group">
+          <label for="medNom">Nom du médicament</label>
+          <input type="text" id="medNom" required placeholder="Ex: Amoxicilline">
+        </div>
+
+        <div class="form-group">
+          <label for="medConseil">Conseil / Prescription</label>
+          <textarea id="medConseil" required placeholder="Ex: 2 comprimés par jour après repas..."></textarea>
+        </div>
+
+        <button type="submit">Ajouter recommandation</button>
+      </form>
+
+      <h3>Recommandations enregistrées :</h3>
+      <div id="doctorList" class="doctor-list"></div>
+    </section>
+
+    <!-- PHARMACIEN -->
+    <section id="pharmacien" class="section">
+      <h2>Espace Pharmacien</h2>
+      <p>Ajouter un médicament disponible dans votre pharmacie.</p>
+
+      <form id="medForm">
+        <div class="form-group">
+          <label for="medicament">Nom médicament</label>
+          <input type="text" id="medicament" required placeholder="Ex: Doliprane">
+        </div>
+
+        <div class="form-group">
+          <label for="pharmacie">Nom pharmacie</label>
+          <input type="text" id="pharmacie" required placeholder="Ex: Pharmacie Plateau">
+        </div>
+
+        <div class="form-group">
+          <label for="ville">Ville</label>
+          <select id="ville" required>
+            <option value="">-- Choisir --</option>
+            <option value="Dakar">Dakar</option>
+            <option value="Pikine">Pikine</option>
+            <option value="Guédiawaye">Guédiawaye</option>
+            <option value="Rufisque">Rufisque</option>
+            <option value="Thiès">Thiès</option>
+            <option value="Saint-Louis">Saint-Louis</option>
+            <option value="Kaolack">Kaolack</option>
+            <option value="Ziguinchor">Ziguinchor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">Adresse / Localisation</label>
+          <input type="text" id="adresse" required placeholder="Ex: Avenue Blaise Diagne, près Sandaga">
+        </div>
+
+        <div class="form-group">
+          <label for="prix">Prix (FCFA)</label>
+          <input type="number" id="prix" required placeholder="Ex: 1500">
+        </div>
+
+        <div class="form-group">
+          <label for="stock">Stock</label>
+          <select id="stock" required>
+            <option value="">-- Choisir --</option>
+            <option value="Disponible">Disponible</option>
+            <option value="Rupture">Rupture</option>
+          </select>
+        </div>
+
+        <button type="submit">Ajouter médicament</button>
+      </form>
+
+      <h3>Médicaments enregistrés :</h3>
+      <div id="allMeds" class="result-list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Projet PharmaFinder Sénégal - HTML / CSS / JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
